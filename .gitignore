@@ -39,7 +39,7 @@ out/
 ### Kotlin ###
 .kotlin
 
-### application.properties and yml, yaml ###
-#application*.properties
-#application*.yml
-#application*.yaml
+## application.properties and yml, yaml ###
+application*.properties
+application*.yml
+application*.yaml

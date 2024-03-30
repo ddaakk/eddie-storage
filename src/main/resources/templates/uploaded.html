@@ -75,17 +75,23 @@
 
 <div th:each="uploaded, stat : ${uploadedList}" class="link-container">
     <div class="link-wrapper">
-        <a id="link${stat.index}" class="download-link" th:href="@{/download/{uploaded}(uploaded=${uploaded})}"
+        <a id="'link' + ${stat.index}" class="download-link"
+           th:href="@{/download/{uploaded}(uploaded=${uploaded})}"
            th:text="'파일 다운로드 ' + ${stat.index + 1}"></a>
     </div>
-    <button onclick="copyToClipboard('link${stat.index}')" class="copy-button">URL 복사</button>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        let downloadUrl = /*[[@{/download/{uploaded}(uploaded=${uploaded})}]]*/ 'downloadUrl';
+        /*]]>*/
+    </script>
+    <button onclick="copyToClipboard(downloadUrl)" class="copy-button">URL 복사</button>
 </div>
 <script>
-    function copyToClipboard(elementId) {
-        let copyText = document.getElementById(elementId).href;
-        navigator.clipboard.writeText(copyText).then(function () {
-            alert('다운로드 주소가 복사되었습니다.');
-        }).catch(function (error) {
+    function copyToClipboard(text) {
+        text = window.location.origin + text;
+        navigator.clipboard.writeText(text).then(function() {
+            alert("다운로드 주소가 복사되었습니다.");
+        }).catch(function(_) {
             alert('클립보드 복사 중 오류가 발생하였습니다.');
         });
     }
