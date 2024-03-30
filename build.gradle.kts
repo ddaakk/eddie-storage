@@ -13,13 +13,13 @@ plugins {
 group = "org.example"
 version = "0.0.1-SNAPSHOT"
 
-tasks.getByName<BootJar>("bootJar") {
-    enabled = true
-}
-
-tasks.getByName<Jar>("jar") {
-    enabled = false
-}
+//tasks.getByName<BootJar>("bootJar") {
+//    enabled = true
+//}
+//
+//tasks.getByName<Jar>("jar") {
+//    enabled = false
+//}
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
