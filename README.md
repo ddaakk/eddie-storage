@@ -22,4 +22,4 @@
 - application.yml 은 gitignore 처리했습니다.
 
 ## 배포
-- 배포는 Netlify를 통해 진행했습니다. 
+- 배포는 QODDI를 통해 진행했습니다. 
