@@ -87,9 +87,9 @@
     <button onclick="copyToClipboard(downloadUrl)" class="copy-button">URL 복사</button>
 </div>
 <script>
-    async function copyToClipboard(text) {
-        text = window.location.origin + text;
-        await navigator.clipboard.writeText(text).then(function() {
+    function copyToClipboard(text) {
+        const url = location.protocol + '//' + location.host + location.pathname + text;
+        navigator.clipboard.writeText(url).then(function() {
             alert("다운로드 주소가 복사되었습니다.");
         }).catch(function(_) {
             alert('클립보드 복사 중 오류가 발생하였습니다.');
