@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: uploader
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  session:
+    tracking-modes: cookie
+  tomcat:
+    max-swallow-size: -1
+
+cloud:
+  aws:
+    credentials:
+      access-key: ${ACCESS_KEY}
+      secret-key: ${SECRET_KEY}
+    region:
+      static: ${REGION}
+    s3:
+      bucket: ${BUCKET}
+    stack:
+      auto: false
