@@ -17,9 +17,11 @@
 ## 아쉬운 점
 - 기능 단위로 PR을 작성을 못했습니다.
 - 테스트 하나가 깨지는데 원인을 찾지 못해서 제출 후 여쭤보려합니다.
+- Clipboard API가 localhost랑 https에서만 가능한지 모르고 시간을 조금 낭비했습니다.
 
 ## 추가
 - application.yml 은 gitignore 처리했습니다.
+- 서버 업로드 용량 제한은 application.yml 에서 하실 수 있으며 10MB로 제한하였습니다.
 
 ## 배포
 - 배포는 Qoddi를 통해 진행했습니다. 
