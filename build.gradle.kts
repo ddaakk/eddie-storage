@@ -1,4 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.api.tasks.bundling.Jar
+import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
     id("org.springframework.boot") version "3.2.4"
@@ -10,6 +12,14 @@ plugins {
 
 group = "org.example"
 version = "0.0.1-SNAPSHOT"
+
+tasks.getByName<BootJar>("bootJar") {
+    enabled = false
+}
+
+tasks.getByName<Jar>("jar") {
+    enabled = true
+}
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
