@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Eddie Storage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        div {
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="file"],
+        input[type="number"],
+        button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box; /* Adds padding without increasing the width */
+        }
+        button {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        p {
+            color: #ff0000;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<form th:object="${uploadForm}" action="/upload" method="post" enctype="multipart/form-data">
+    <div>
+        <label for="files">공유할 파일을 선택해주세요:</label>
+        <input type="file" id="files" name="files" multiple>
+        <p th:if="${#fields.hasErrors('files')}" th:errors="*{files}">Incorrect files</p>
+    </div>
+
+    <div>
+        <label for="validTime">유효시간 (분):</label>
+        <input type="number" id="validTime" name="validTime" min="1" required>
+        <p th:if="${#fields.hasErrors('validTime')}" th:errors="*{validTime}">Incorrect validTime</p>
+    </div>
+
+    <div>
+        <label for="maxDownloads">최대 다운로드 가능 횟수:</label>
+        <input type="number" id="maxDownloads" name="maxDownloads" min="1" required>
+        <p th:if="${#fields.hasErrors('maxDownloads')}" th:errors="*{maxDownloads}">Incorrect maxDownloads</p>
+    </div>
+
+    <div>
+        <button type="submit">업로드</button>
+    </div>
+</form>
+
+</body>
+</html>

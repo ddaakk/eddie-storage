@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Eddie Storage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+            color: #333;
+        }
+
+        h1 {
+            color: #d9534f; /* Bootstrap red */
+        }
+
+        p {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+            opacity: 0.9;
+        }
+
+        button:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<h1>오류가 발생하였습니다</h1>
+<p th:text="${errorMessage}"></p>
+<button type="button" onclick="window.location.href='/'">홈으로 이동</button>
+</body>
+</html>
